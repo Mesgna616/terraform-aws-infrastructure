@@ -3,19 +3,19 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.74"  # Updated AWS provider version
+      version = "~> 3.74"  
     }
   }
 }
 
-# AWS provider configuration
+
 provider "aws" {
   region = var.region  # Use the region specified in variables
 }
 
 # S3 static website bucket resource
 resource "aws_s3_bucket" "my_static_page_bucket" {
-  bucket = var.bucket_name  # Use the bucket name specified in variables
+  bucket = var.bucket_name  
 
   # Tags for the S3 bucket
   tags = {
@@ -26,16 +26,16 @@ resource "aws_s3_bucket" "my_static_page_bucket" {
 
 # Configure S3 bucket for static website hosting
 resource "aws_s3_bucket_website_configuration" "my_static_page_website" {
-  bucket = aws_s3_bucket.my_static_page_bucket.id  # Reference the created bucket
+  bucket = aws_s3_bucket.my_static_page_bucket.id  
 
   # Index document configuration
   index_document {
-    suffix = var.index_document_suffix  # Use the index document suffix specified in variables
+    suffix = var.index_document_suffix  
   }
 
   # Error document configuration
   error_document {
-    key = var.error_document_key  # Use the error document key specified in variables
+    key = var.error_document_key  
   }
 }
 

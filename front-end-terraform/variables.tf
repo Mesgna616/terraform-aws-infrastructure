@@ -1,7 +1,7 @@
 variable "region" {
   description = "The AWS region to create resources in"
   type        = string
-  default     = "eu-west-2"  # Change to eu-west-2
+  default     = "eu-west-2"  
 }
 
 variable "bucket_name" {
